@@ -15,9 +15,21 @@ def describe(self):
   return f"{self.name} is {self.age} years old and says {self.speak()}"
   
 class Dog(Pet):
-def speak(self):
-  return "Woof!"
+  def speak(self):
+    return "Woof!"
 
 class Cat(Pet):
-def speak(self):
-  return "Meow."
+  def speak(self):
+    return "Meow."
+
+class Bird(Pet):
+  def __init__(self, name, age, can_fly=True):
+  super().__init__(name, age)
+  self.can_fly = can_fly
+  self.energy = 5
+  
+  def speak(self):
+    return "Tweet!"
+  def describe(self):
+    flying = "can fly" if self.can_fly else "cannot fly"
+    return super().describe() + f" and {flying}."
